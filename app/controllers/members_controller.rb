@@ -51,7 +51,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { render text: "We have received your details. We will get back to you asap."}
+        format.html { render :partial => "/members/registration_success" }
         format.json { render json: @member, status: :created, location: @member }
       else
         format.html { render action: "new" }

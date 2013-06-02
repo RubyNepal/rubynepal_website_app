@@ -17,18 +17,18 @@
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email, required: "required" %>
+    <%= f.email_field :email, required: "required" %>
   </div>
   <div class="field">
-    <%= f.label :twitter %><br />
+    <%= f.label "twitter url" %><br />
     <%= f.text_field :twitter %>
   </div>
   <div class="field">
-    <%= f.label :github %><br />
+    <%= f.label "github url *" %><br />
     <%= f.text_field :github, required: "required" %>
   </div>
   <div class="field">
-    <%= f.label :linkedin %><br />
+    <%= f.label "linkedin url" %><br />
     <%= f.text_field :linkedin %>
   </div>
   <div class="field">
@@ -36,8 +36,8 @@
     <%= f.text_field :employement %>
   </div>
   <div class="field">
-    <%= f.label :short_bio %><br />
-    <%= f.text_area :short_bio %>
+    <%= f.label "Short Bio" %><br />
+    <%= f.text_area :short_bio, rows: 10, cols: 50 %>
   </div>
   <div class="actions">
     <%= f.submit "Submit", class: "btn"%>
