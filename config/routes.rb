@@ -1,4 +1,15 @@
 RubynepalWebsiteApp::Application.routes.draw do
+
+  resources :members do
+
+    member do
+      put :toggle_status
+    end
+    collection do
+      get :all
+    end
+
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +59,8 @@ RubynepalWebsiteApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+
+  root :to => 'members#new'
 
   # See how all your routes lay out with "rake routes"
 

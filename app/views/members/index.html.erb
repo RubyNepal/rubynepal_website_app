@@ -1,0 +1,41 @@
+<h1>Listing All Members</h1>
+
+<table class="gridtable">
+  <tr>
+    <th>Full name</th>
+    <th>Email</th>
+    <th>Twitter</th>
+    <th>Github</th>
+    <th>Linkedin</th>
+    <th>Short bio</th>
+    <th>Employement</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+    <td>
+        <%=link_to "#{member.id}.#{member.full_name}", member %>
+        <br />
+        <%=time_ago_in_words(member.created_at)%> ago
+    </td>
+    <td><%= member.email %></td>
+    <td><%= member.twitter %></td>
+    <td><%= member.github %></td>
+    <td><%= member.linkedin %></td>
+    <td><%= truncate(member.short_bio, :length => 50) %></td>
+    <td><%= member.employement %></td>
+    <td><%=member.active ? "active" : "inactive" %></td>
+    <td><%= link_to "#{ member.active ? 'Disable' : 'Enable'}", toggle_status_member_path(member), method: :put %></td>
+    <td><%= link_to 'Edit', edit_member_path(member) %></td>
+    <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Member', new_member_path %>
