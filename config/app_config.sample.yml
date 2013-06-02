@@ -1,0 +1,12 @@
+defaults: &defaults
+  http_username: admin
+  http_password: admin
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+test:
+  <<: *defaults
