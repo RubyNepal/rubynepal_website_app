@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  full_name: MyString
-  email: MyString
-  twitter: MyString
-  github: MyString
-  linkedin: MyString
-  short_bio: MyString
-  employement: MyString
+  full_name: rohit joshi
+  email: link2j.roy@gmail.com
+  twitter: roxxypoxxy
+  github: rohitrox
+  linkedin: rohitjoshi
+  short_bio: let it go
+  employement: rails
 
 two:
   full_name: MyString

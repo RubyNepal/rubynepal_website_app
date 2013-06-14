@@ -1,5 +1,7 @@
 <h1>Listing All Members</h1>
-
+<div class="pull-right">
+    <%= link_to "Refresh Data", refresh_data_members_path, method: :put, title: "refresh all member's and get recomputes score form github"%>
+</div>
 <table class="gridtable">
   <tr>
     <th>Full name</th>

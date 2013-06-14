@@ -91,7 +91,13 @@ class MembersController < ApplicationController
   def toggle_status
     @member = Member.find(params[:id])
     @member.update_attribute(:active, !@member.active)
+    @member.populate_score_and_avatar if @member.active
     redirect_to members_path, notice: 'Member was successfully updated.'
+  end
+
+  def refresh_data
+    Member.refresh_data
+    redirect_to members_path, notice: "All member's data refreshed."
   end
 
 end

@@ -1,4 +1,5 @@
 require 'test_helper'
+require "mocha/setup"
 
 class MembersControllerTest < ActionController::TestCase
   setup do
@@ -31,10 +32,12 @@ class MembersControllerTest < ActionController::TestCase
     assert_response 401
   end
 
-  test "should toggle the status of member with put toggle_status" do
+  test "should toggle the status of member with put toggle_status and calculate score when activated" do
     @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials("admin", "admin")
+    Github::Event.any_instance.stubs(:get).returns(JSON.parse(File.read("#{Rails.root}/test/fixtures/github_response.txt")))
     put :toggle_status, {id: @member}
     assert @member.reload.active
+    assert_equal 47, @member.reload.score
     put :toggle_status, {id: @member}
     assert !@member.reload.active
   end

@@ -7,6 +7,7 @@ RubynepalWebsiteApp::Application.routes.draw do
     end
     collection do
       get :all
+      put :refresh_data
     end
 
   end
