@@ -21,6 +21,11 @@ end
 
 gem 'jquery-rails'
 
+gem 'httparty'
+gem 'rack-jsonp-middleware', :require => 'rack/jsonp'
+gem 'rack-cors', :require => 'rack/cors'
+
+
 group :development do
 
 end
